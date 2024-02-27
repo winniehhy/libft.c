@@ -10,13 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-// if (c >= '0' && c <= '9')
-// 	return (1);
-// else
-// 	return (0);
+int main()
+{
+	int input = 'a';
+	int result;
+
+	result = ft_isdigit(input);
+	if(result)
+	{
+		printf("'%c' is a digit\n", input);
+	}
+	else
+	{
+		printf("'%c' is not a digit.\n", input);
+	}
+	return 0;
+}
