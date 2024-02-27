@@ -21,12 +21,9 @@ int	ft_isprint(int c)
 }
 
 int main()
-{
-	char input_char;
+{	
+	char input_char = 'a';
 	int result;
-
-	printf("Enter a character : ");
-	scanf("%c", &input_char);
 
 	result = ft_isprint(input_char);
 
