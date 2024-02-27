@@ -10,29 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+#include "libft.h"
+
+int	ft_atoi(const char *str)
 {
-	int	i;
-	int	negative;
-	int	result;
+	int i;
+	int sign;
+	int result;
 
 	i = 0;
-	negative = 1;
+	sign = 1;
 	result = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
+	//check whitespace
+	while((str[i] >= 9 && str[i] <= 13 || str[i] == ' '))
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	//check sign
+	if(str[i] =='+' ||str[i] == '-')
 	{
-		if (str[i] == '-')
-			negative *= -1;
+		if(str[i] == '-')
+		sign *= -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	//convert digit to integer
+	while(str[i] >= '0' && str[i] <='9')
 	{
-		result *= 10;
-		result += (str[i] - 48);
+		result *=10;
+		result += (str[i]- 48);
 		i++;
 	}
-	result *= negative;
+	result *= sign;
 	return (result);
+	
+}
+
+int main()
+{
+	char str1[] = "1234";
+	char str2[] = "-0";
+	char str3[] = "123 hello";
+
+	printf("String : \"%s\", Converted Integer: %d\n", str1,ft_atoi(str1));
+	printf("String : \"%s\", Converted Integer: %d\n", str2, ft_atoi(str2));
+	printf("String : \"%s\", Converted Integer: %d\n", str3, ft_atoi(str3));
+	return 0;
 }
