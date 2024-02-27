@@ -10,10 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//ft_bzero = sets a block of memory to zero
-#include <libft.h>
+#include "libft.h"
 
-void ft_bzero(void s*, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
+	ft_memset(s, 0, n);
+}
 
+int main() {
+    char str[] = "Hello, World!";
+    printf("Original string: %s\n", str);
+
+    ft_bzero(str, sizeof(str));
+    printf("Modified string: %s\n", str);
+
+    return 0;
 }
