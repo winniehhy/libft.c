@@ -14,63 +14,41 @@
 
 void *ft_memmove(void *dest, const void *src, size_t n)
 {
-    if (src < dest) //overlap
+    if (src < dest) //potentially overlap after src
     {
         while (n--)
         ((char*)dest)[n] = ((char *)src)[n];
     }
-    else if (src >= dest) //no overlap
+    else if (src >= dest) //potentially overlap before src
     ft_memcpy (dest, src, n);
 
     return(dest);
 }
 
-
-int main ()
+void	*ft_memcpy(void *d, const void *s, size_t a)
 {
-    // test : overlap
-    char str1[] = "Hello ";
-    char str2[] = "World ";
+	size_t i;
 
-    printf( "Original string  \n");
-    printf( "Source : %s\n", str1);
-    printf( "Destination : %s\n", str2);
-    
-    //copy from str1 to str2
-    ft_memmove(str2, str1, strlen(str1) + 1); //include NULL
-
-    printf( "\n After ft_memmove  \n");
-    printf( "Destination : %s\n", str2);
-
-    
-    if (str1 < str2) {
-        printf("Overlap detected.\n");
-    } else {
-        printf("No overlap detected.\n");
-    }
+	if (!d && !s)
+		return (0);
+	i = 0;
+	while (i < a)
+	{
+		((unsigned char *)d)[i] = ((unsigned char *)s)[i];
+		i++;
+	}
+	return (d);
+}
 
 
-    printf( "---------------------------------------------------- \n");
-    //test : no overlap
-    char str3[] = "Hello ";
-    char str4[20] = "Hello ";
+int main()
+{
+    char src[] = "abcdef";
 
-    printf("\n Original String  \n");
-    printf("Source : %s\n", str3);
-    printf("Destination : %s\n", str4);
+    //using src+1 as dst to demonstrate when dst overlaps src
+    ft_memmove(src+1, src, 4);
+    printf("output   : %s\n", src);
+    printf("expected : aabcdf\n\n");
 
-    ft_memmove(str4, str3, strlen(str3) + 1);
-
-    printf("\n After ft_memmove  \n");
-    printf("Destination: %s\n", str4);
-
-    
-    if (str3 < str4 ) {
-        printf("Overlap detected.\n");
-    } else {
-        printf("No overlap detected.\n");
-    }
-
-
-    return 0;
+    //if not overlap will like normal memcpy = abcd
 }
