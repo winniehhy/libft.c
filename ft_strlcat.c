@@ -6,9 +6,12 @@
 /*   By: hheng <hheng@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:59:01 by hheng             #+#    #+#             */
-/*   Updated: 2024/02/29 16:08:24 by hheng            ###   ########.fr       */
+/*   Updated: 2024/02/29 16:49:58 by hheng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//need to relearn
+
 
 #include "libft.h"
 
@@ -42,16 +45,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	return (0);
 }
 
-size_t ft_strlen(const char *s)
-{
-	size_t count;
-
-	count = 0;
-	while(s[count])
-	count++;
-	return(count);
-
-}
 
 int main() {
     char dest[20] = "Hello ";
