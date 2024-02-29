@@ -3,12 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hheng < hheng@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: hheng <hheng@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:57:06 by hheng             #+#    #+#             */
-/*   Updated: 2024/02/24 10:57:06 by hheng            ###   ########.fr       */
+/*   Updated: 2024/02/29 18:09:42 by hheng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+//need to relearn
+
+
 
 #include "libft.h"
 
@@ -32,18 +37,18 @@ char *ft_strchr(const char *s, int c)
     return(NULL);
 }
 
-int main()
-{
-    const char *str = "Hello World";
-    int search_char = 'd';
+// int main()
+// {
+//     const char *str = "Hello World";
+//     int search_char = 'd';
 
-    char *result = ft_strchr(str, search_char);
+//     char *result = ft_strchr(str, search_char);
 
-    if (result != NULL)
-    {
-        printf("Character '%c' found at position : %d\n", search_char, result - str );
-    }else{
-        printf("Character '%c' not found \n", search_char );
-    }
-    return 0;
-}
+//     if (result != NULL)
+//     {
+//         printf("Character '%c' found at position : %d\n", search_char, result - str );
+//     }else{
+//         printf("Character '%c' not found \n", search_char );
+//     }
+//     return 0;
+// }
