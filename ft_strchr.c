@@ -9,12 +9,6 @@
 /*   Updated: 2024/02/29 18:09:42 by hheng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-//need to relearn
-
-
-
 #include "libft.h"
 
 char *ft_strchr(const char *s, int c)
