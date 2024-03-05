@@ -6,7 +6,7 @@
 #    By: hheng <hheng@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 08:51:15 by hheng             #+#    #+#              #
-#    Updated: 2024/03/05 14:34:37 by hheng            ###   ########.fr        #
+#    Updated: 2024/03/05 18:28:45 by hheng            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,13 @@ SRC = \
 
 OBJ = $(SRC:%.c=%.o) 
 
+
+# BONUS
+B_SRC = $(addprefix $(SRC_DIR)ft_, $(addsuffix .c, \
+		lstnew lstadd_front lstsize lstlast lstadd_back lstdelone \
+		lstclear lstiter lstmap))
+B_OBJ = $(B_SRC:%.c=%.o)
+
 # header
 TOP = ./
 HEAD = -I $(TOP)
@@ -42,8 +49,12 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
-	$(SLIB) $@ $^
+$(NAME): $(OBJ)
+	$(LIBCR) $(NAME) $(OBJ)
+
+bonus: $(B_OBJ)
+	$(LIBCR) $(NAME) $(B_OBJ)
+
 clean:
 	$(RM) $(OBJ) 
 
@@ -56,3 +67,4 @@ norme:
 	norminette -R CheckForbiddenSourceHeader $(SRC) $(B_SRC) ./libft.h
 
 .PHONY: all clean fclean re norme 
+ 
