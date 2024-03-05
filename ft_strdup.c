@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hheng <hheng@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/05 09:36:22 by hheng             #+#    #+#             */
+/*   Updated: 2024/03/05 09:37:15 by hheng            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)
@@ -19,18 +31,7 @@ char	*ft_strdup(const char *s1)
 	dup[i] = '\0';
 	return (dup);
 }
-
-size_t ft_strlen(const char *s)
-{
-	size_t count;
-
-	count = 0;
-	while(s[count])
-	count++;
-	return(count);
-
-}
-
+/*
 int main()
 {
     const char *originalString = "Hello!";
@@ -50,3 +51,4 @@ int main()
 
     return 0;
 }
+*/
