@@ -6,55 +6,43 @@
 /*   By: hheng <hheng@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:59:01 by hheng             #+#    #+#             */
-/*   Updated: 2024/02/29 16:49:58 by hheng            ###   ########.fr       */
+/*   Updated: 2024/03/07 17:28:58 by hheng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//need to relearn
-
-
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	size_t	j;
-	size_t 	dest_len;
+	size_t	dlen;
 
+	if (!dst && dstsize == 0)
+		return (0);
 	i = 0;
-	j = 0;
-	dest_len = ft_strlen(dest);
-	if(size == 0)
-	return (ft_strlen(src));
-	if (size -1 >= ft_strlen(dest))
+	dlen = ft_strlen(dst);
+	if (dstsize < dlen + 1)
+		return (dstsize + ft_strlen(src));
+	while (i < (dstsize - dlen - 1) && src[i])
 	{
-		while (dest[i])
-		i++;
-		while (src[j] && (i < size -1))
-		{
-			dest[i] = src[j];
-			i++;
-			j++;
-		}
-		dest[i] = '\0';
-		return (dest_len + ft_strlen(src));
+		dst[i + dlen] = src[i];
+		++i;
 	}
-	else
-	return (ft_strlen(src) + size);
-
-	return (0);
+	dst[i + dlen] = '\0';
+	return (dlen + ft_strlen(src));
 }
-
+/*
 
 int main() {
-    char dest[20] = "Hello ";
-    const char *src = "world";
-    size_t size = sizeof(dest);
+     char dest[20] = "Hello ";
+     const char *src = "world";
+     size_t size = sizeof(dest);
 
-    size_t result = ft_strlcat(dest, src, size);
+     size_t result = ft_strlcat(dest, src, size);
 
-    printf("Concatenated string: %s\n", dest);
-    printf("Length of concatenated string: %zu\n", result);
+     printf("Concatenated string: %s\n", dest);
+     printf("Length of concatenated string: %zu\n", result);
 
-    return 0;
-}
+     return 0;
+ }
+ */
