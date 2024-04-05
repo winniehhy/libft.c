@@ -1,3 +1,8 @@
+
+<h1>Libft-42 </h1>
+This project intends to develop a C library that contains common functions which will be available for use in all our subsequent 42 projects.
+
+---------------------------------------------------------------------------------------------------------
 ft_isalnum - alphanumeric character test.
 
 ft_isalpha - alphabetic character test.
